@@ -1,0 +1,10 @@
+.heading{
+    color: teal;
+}
+.container{
+    border: 1px solid teal;
+}
+.miniCard{
+    border: 1px solid black;
+    display: flex;
+}
