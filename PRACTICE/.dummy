@@ -1,8 +1,0 @@
-We will upload Image from local machine to cloudinary database using multer of node.
-
-Will Use:
-1. cloudinary;
-2. cors;
-3. dotenv;
-4. multer;
-5. express;
