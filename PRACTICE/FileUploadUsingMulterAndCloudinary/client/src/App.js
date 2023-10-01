@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
 
 function App() {
+  const[img, setImg]=useState();
+  const[url, setUrl]=useState('');
+
+  const handleImg=(e)=>{
+      console.log(e.target.files[0]);
+      setImg(e.target.files[0]);
+  }
+  const uploadImage=(e)=>{
+    e.preventDefault();
+    const formData=new FormData()
+    formData.append('Image', img);
+
+    fetch(`http://localhost:8080/upload`, {
+      method:"POST",
+      body:formData
+    })
+    .then((res)=>res.json())
+    .then((ans)=>setUrl(ans.url))
+    .catch((err)=>console.log(err))
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <form onSubmit={uploadImage} encType="multipart-data">
+           <input type="file" onChange={handleImg} />
+           <input type="submit" value='submit' />
+       </form>
+       
+       <img src={url}/>
     </div>
   );
 }
