@@ -29,13 +29,14 @@ function App() {
   const totalPrice=items.reduce((acc, elem)=>{
     return acc+elem.price;
   },0)
+
   let[total, setTotal]=useState(totalPrice);
 
   
   const handleQty=(idx, q)=>{
     let obj=items[idx]
     console.log(obj);
-    let ans=q===1 ? true : false;
+    let ans= q===1 ? true : false;
     if(ans){
       setTotal(total=total+obj.price)
     }else{
