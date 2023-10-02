@@ -11,7 +11,7 @@ function App() {
   }
   const uploadImage=(e)=>{
     e.preventDefault();
-    const formData=new FormData()
+    const formData=new FormData()    //instead of formData we can use FileReader
     formData.append('Image', img);
 
     fetch(`http://localhost:8080/upload`, {
@@ -37,3 +37,19 @@ function App() {
 }
 
 export default App;
+
+
+
+
+// const TransformFileData = (file) => {
+//   const reader = new FileReader();
+
+//   if (file) {
+//     reader.readAsDataURL(file);   
+//     reader.onloadend = () => {
+//       setProductImg(reader.result);
+//     };
+//   } else {
+//     setProductImg("");
+//   }
+// };
