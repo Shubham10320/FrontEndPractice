@@ -1,0 +1,21 @@
+.grandParent{
+    padding:50px;
+    width:50%;
+    background-color: crimson;
+    color: white;
+    font-size: 30px;
+}
+.parent{
+    padding:50px;
+    width:40%;
+    background-color:green;
+    color: white;
+    font-size: 30px;
+}
+.child{
+    padding:50px;
+    width:30%;
+    background-color: teal;
+    color: white;
+    font-size: 30px;
+}

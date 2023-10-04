@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling In Javascript</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="grandParent">
+        GrandParent
+        <div class="parent">
+            Parent
+            <div class="child">
+                Child
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./index.js">
+    //whenever we use addEventListner or inline js  event propogate happens 
+    //event propogate means event growing
+    //event propogate happens in two step :-       1.capture phase            2.bubbling phase
+
+    //capturing phase => 
+    //event grow hoga e.g=>body->grandparent->parent->childe but but 
+    //jab hum body ya phir grandparent pe click krege tab automatically parent and child 
+    // tigger nhi hoga jese bubbling m hota hai
+
+
+
+    //bubbling phase=>
+    //event grow hoga and jab child pe ya phir parent pe click hoga toh uper ke sab event automaticcally trigger ho jayge 
+
+
+
+
+
+
+
+
+
+    // event propagation happens in 2step
+    // 1.event capture => firstly it will capture all event for example body->grandparent->parent->child
+    //   but it wont execute any event it will only capture all event like a storing
+    //   it move like up to down 
+    //   but if we have mention that captue true then while capturing it will definetly execute that event do to so below is the example
+
+    // grandParent.addEventListener('click', ()=>{
+    //       console.log('grandparent')
+    // })
+    // parent.addEventListener('click', ()=>{
+    //     console.log('parent');
+    //     {captue:true}
+    // })
+
+     //in above example when we  will click on any event than capturing will done and while capturing it will execute the parent  bcoz we have mention do to so...
+
+
+    //  ONCE CAPTURING DONE Then 
+
+    // 2.event bubbling happens =>when will will click on parent then it will excute grandparent and body event as well it move like down to up
+
+
+    //e.stopPropogation()
+    // e.stopImmediatePropogation()
+
+</script>
+
+
+<!-- 
+now 
+ as above example when we click on any event 
+ first it will capture all event while capturing we are saying to capture parent so body->grandparent->parent it will execute its work->child 
+ now all event has captured and assume we have click on child so 
+ chile will execute then parent is already executed so it wont execute again after that grandparent will execute then body will execute -->
+
+ 
+
+
+ <!-- example=>======>  IIMPORTANT VERY MUCH 
+ i clicked on child so event propogate will happen and it have 2 step capture and bubbling
+ so it will capture the all event but i have mention to capture the parent so example is 
+ body captured->grandparent captured -> parent it will execute what ever it happen ->child captured 
+ now capturing phase done 
+
+ so it will execute child event then it will go for parent, parent has already executed so it will not execute parent
+ and it will execute the grandparent then body will get executed -->
+
+
+<!-- 
+This will execute only once 
+
+ parent.addEventListener("click", (e)=>{
+   console.log('hii')
+ },{once:true}) -->
+
+
+
+ <!-- if we have more than 1 event on same element and what to execute only one event and for another event it stop then we can use e.stopImmediatePropogation() 
+      it use to stop event if one elem have more then 1 event 
+-->
