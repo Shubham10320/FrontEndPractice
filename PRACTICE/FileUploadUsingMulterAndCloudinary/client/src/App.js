@@ -19,7 +19,10 @@ function App() {
       body:formData
     })
     .then((res)=>res.json())
-    .then((ans)=>setUrl(ans.url))
+    .then((ans)=>{
+      setUrl(ans.url)
+      console.log(ans)
+    })
     .catch((err)=>console.log(err))
   }
 
