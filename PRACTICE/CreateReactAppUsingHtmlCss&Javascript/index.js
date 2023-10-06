@@ -13,12 +13,20 @@ let heading2=React.createElement(
     'Im heading 2....'
 )
 
+let heading3=React.createElement(
+    'h3',
+    {
+        class:'heading3'
+    },
+    'Im heading 3....'
+)
+
 let container=React.createElement(
     'div',
     {
         id:'container'
     },
-    [heading1, heading2]
+    [heading1, heading2, heading3]
 )
 
 
