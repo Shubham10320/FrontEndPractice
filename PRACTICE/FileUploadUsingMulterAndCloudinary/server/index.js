@@ -36,6 +36,11 @@ app.get('/', (req, res)=>{
 // })
 
 
+
+
+
+
+
 const storage=multer.memoryStorage();
 const upload=multer({storage})
 
@@ -63,6 +68,11 @@ app.post('/upload', upload.single('Image'), async(req, res)=>{
     res.json({ message: "Error: " + error.message });
   }
 });
+
+
+
+
+
 
 
 app.listen(PORT, ()=>{
