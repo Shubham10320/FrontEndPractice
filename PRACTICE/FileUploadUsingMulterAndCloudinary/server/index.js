@@ -70,11 +70,6 @@ app.post('/upload', upload.single('Image'), async(req, res)=>{
 });
 
 
-
-
-
-
-
 app.listen(PORT, ()=>{
     console.log(`listening on port ${PORT}`)
 })
